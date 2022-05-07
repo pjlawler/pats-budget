@@ -141,7 +141,7 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
-    console.log("made it here!")
+    console.log("Nework error! Saving to IndexDB")
     saveRecord(transaction);
 
     // clear form

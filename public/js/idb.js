@@ -60,7 +60,7 @@ function uploadTranscation() {
                 const transaction = db.transaction(['new_transaction'], 'readwrite');
                 const budgetObjectStore = transaction.objectStore('new_transaction');
                 budgetObjectStore.clear();
-                alert('All saved transaction have been submitted!');
+                alert('All saved transactions have been submitted!');
               })
               .catch(err => {
                 console.log(err)
