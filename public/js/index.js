@@ -1,6 +1,7 @@
 let transactions = [];
 let myChart;
 
+// Route to get the data from MongoDB
 fetch("/api/transaction")
   .then(response => {
     return response.json();
@@ -14,8 +15,9 @@ fetch("/api/transaction")
     populateChart();
   });
 
+// displays the transactions on the page
 function populateTotal() {
-  // reduce transaction amounts to a single total value
+  // reduces transaction amounts in the transactions array to a single total value
   let total = transactions.reduce((total, t) => {
     return total + parseInt(t.value);
   }, 0);
@@ -23,8 +25,8 @@ function populateTotal() {
   let totalEl = document.querySelector("#total");
   totalEl.textContent = total;
 }
-
 function populateTable() {
+  // iterates through the transactions in the transactions array and displays it on the page
   let tbody = document.querySelector("#tbody");
   tbody.innerHTML = "";
 
@@ -39,8 +41,9 @@ function populateTable() {
     tbody.appendChild(tr);
   });
 }
-
 function populateChart() {
+  // Updates the chart with the data from the transactions array
+
   // copy array and reverse it
   let reversed = transactions.slice().reverse();
   let sum = 0;
@@ -78,6 +81,8 @@ function populateChart() {
   });
 }
 
+
+// formats the object whether it's a debit or credit and then attemps to post it in the MongoDB, if it fails it will save it in the indexDB oject store.
 function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
@@ -145,10 +150,10 @@ function sendTransaction(isAdding) {
   });
 }
 
+// event listeners for the buttons on the page to add or subtract funds
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);
 };
-
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };

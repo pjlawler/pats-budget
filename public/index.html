@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="manifest" href="./manifest.json">
-  <title>Budget Tracker</title>
+  <title>Pat's Budget Tracker</title>
 </head>
 <body>
+  <!-- top line of page showing total -->
   <div class="wrapper">
     <div class="total">
       <div class="total">Your total is: $<span id="total">0</span></div>
     </div>
 
+    <!-- single line form to add/subtract funds -->
     <div class="form">
       <input type="text" id="t-name" placeholder="Name of transaction" />
       <input type="number" min="0" id="t-amount" placeholder="Transaction amount" />
@@ -25,6 +27,7 @@
       <p class="error"></p>
     </div>
 
+    <!-- dynamic table dsiplaying all the transactions -->
     <div class="transactions">
       <table>
         <thead>
@@ -37,23 +40,17 @@
       </table>
     </div>
     
+    <!-- graph showing total over time -->
     <canvas id="myChart"></canvas>
   </div>
 
+  <!-- loads the required script files for the app -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="js/index.js"></script>
   <script src="js/idb.js"></script>
   <script>
     (function() {
-      console.log(`
-      ============================
-      
-      installing....
-  
-      ============================
-      `)
-  
-  
+      // registers the servcice worker prior to page load to allow offline access to the needed files
       if("serviceWorker" in navigator) {
         navigator.serviceWorker.register("./service-worker.js")
           .then(() => console.log("Service Worker registered successfully."))
