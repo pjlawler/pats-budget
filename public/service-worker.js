@@ -1,8 +1,10 @@
+// Service worker default values
 const APP_PREFIX = 'pats-budget-';     
 const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const DATE_CACHE_NAME = 'data-cache-' + VERSION;
 
+// files that the service worker will serve if offline
 const FILES_TO_CACHE = [
     "/",
     "./index.html",
@@ -20,7 +22,7 @@ const FILES_TO_CACHE = [
     './icons/icon-512x512.png'
   ];
 
-
+// event listen to detect when the page is installing so ut caches the needed files for offline access
 self.addEventListener('install', function(e)  {
   e.waitUntil(
       caches.open(CACHE_NAME).then(function (cache) {
@@ -30,6 +32,7 @@ self.addEventListener('install', function(e)  {
     )
 });
 
+// event listener for an API fetch request, which will return the cached files if unable to fetch the online files
 self.addEventListener('fetch', function(e) {
   console.log('fetch request : ' + e.request.url)
 
@@ -66,8 +69,6 @@ self.addEventListener('fetch', function(e) {
           console.log('file is not cached, fetching : ' + e.request.url)
           return caches.match('/')
         }
-        // the line below does the same as the if/then above without the console logs
-        // return request || fetch(e.request)
       })
 
     })
@@ -76,6 +77,7 @@ self.addEventListener('fetch', function(e) {
 
 })
 
+// fires when the service worker activates, deletes old cache if any
 self.addEventListener('activate', function(e) {
   e.waitUntil(
     caches.keys().then(function(keyList) {
