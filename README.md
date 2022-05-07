@@ -14,18 +14,23 @@
  
  - ### The app utilizes a service worker to allow for offline servicing of files.  
  
- - ### It also uses indexDB for data storage of transactions allowingfor offline functionality. Finally, the app is a progresseive web app that allows the app to be downloaded and run from outside the stardard browser environment.  
+ - ### It also uses indexDB for data storage of transactions allowingfor offline functionality. Finally, the app is a progresseive web app that allows the app to be downloaded and run from outside the stardard browser environment.
+
+ ### Application may be accessed either in my GitHub Repository or deployed live.
+
+ - [GitHub Repository](https://github.com/pjlawler/pats-budget) - https://github.com/pjlawler/pats-budget
+ - [Live Deployment (via Heroku)](https://enigmatic-cove-87363.herokuapp.com/) - https://enigmatic-cove-87363.herokuapp.com/
+ _ _ _  
 
  ![Screen Shot](/screenshots/screen-shot.png)
  _ _ _
  ## *Usage Information*
-  You can use it from the web by going to the site or download it to your computer's desktop, phone's homepage etc.
+  You can use it from the web by going to the site https://enigmatic-cove-87363.herokuapp.com/ from there you can use it while you are either online or offline.  You may also install the app through your browswer by clicking the install icon.  It will download o your computer's desktop and/or smart-phone/tablet's homepage.
   - - -
  ## *Installation Instructions*
-  To install the PWA just click on the download icon in the browser.
+  To install the PWA just click on the install icon in the browser.
   - - -
- 
- 
+  
  ## *Questions*
  ###   For questions or comments concerning this project please contact, Patrick J. Lawler, the author, owner and manager the work via either github or email. Links for each are listed below.
  - GitHub - [pjlawler](https://github.com/pjlawler) 
