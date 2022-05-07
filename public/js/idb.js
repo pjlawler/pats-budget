@@ -1,9 +1,9 @@
-// This file allows for the offline storage of data in the browser's IndexDB in the event the app is not connected to the online MongoDB due to connectivity issues
+// This file allows for the offline storage of data in the browser's IndexedDB in the event the app is not connected to the online MongoDB due to connectivity issues
 
 // Declares the variable to use for the db request
 let db;
 
-// Sets the variable for index db
+// Sets the variable for indexedDB
 const request = indexedDB.open('pats_budget', 1);
 
 // The methods below handle the specific db states
